@@ -48,4 +48,22 @@ public class PopupController
 		      }
 		      return isParseable;
 	}
+	private boolean isInteger(String potentialNumber)
+	{
+		boolean isParseable = false;
+		
+		try
+		{
+			int test = Integer.parseInt(potentialNumber);
+			isParseable = true;
+		}
+		catch(NumberFormatException notInt)
+		{
+			display.displayMessage(notInt.getMessage());
+			display.displayMessage("Type in an integer next time");
+		}
+		
+		
+		return isParseable;
+	}
 }
