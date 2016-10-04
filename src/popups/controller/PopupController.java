@@ -19,13 +19,13 @@ public class PopupController
 	
 	public void start()
 	{
-		lernList();
+		learnLists();
 //		String answer = "sample";
 //		while(answer != null && !isDouble(answer))
-		{
-			answer = display.collectResponse("you need to type in a number!!!");
-		}
-	
+//		{
+//			answer = display.collectResponse("you need to type in a number!!!");
+//		}
+//	
 	}
 	
 	
@@ -74,6 +74,46 @@ public class PopupController
 		Thingy testThingy = new Thingy ();
 		thingyList.add(testThingy);
 		display.displayMessage(thingyList.size() + " is the size of the list");
+		
+		for (int index = 0; index < 5; index++)
+		{
+			Thingy addThingy = new Thingy();
+			thingyList.add(addThingy);
+			display.displayMessage(addThingy.getWords());
+		}
+		///////	
+		display.displayMessage(thingyList.size() + "is the size");
+		
+		thingyList.get(3).setWords("look i changed a value");
+		Thingy temp = thingyList.get(4);
+		temp.setWords("stuff");
+		
+		for ( int index = 0; index < thingyList.size(); index++)
+		{
+			display.displayMessage(thingyList.get(index).getWords());
+		}
+		/////////
+		thingyList.add(3, new Thingy());
+		
+		thingyList.remove(0); //I no longer have access to this object because there is no = sign
+		
+		display.displayMessage("the size is " + thingyList.size());
+		
+		Thingy deletedThingy = thingyList.remove(3);
+		display.displayMessage(deletedThingy.getWords() + " and the list size is" + thingyList.size());
+		
+		thingyList.set(0, deletedThingy);
+		
+		for (int index = 0; index < thingyList.size(); index++)
+		{
+			display.displayMessage(thingyList.get(index).getWords());
+		}
+		
+		for (Thingy currentThingy : thingyList)
+		{
+			display.displayMessage(currentThingy.getWords());
+		}
+		
 	}
 	
 }
